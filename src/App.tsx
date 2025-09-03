@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [countTsunami, setCountTsunami] = useState(0);
+  const [countOtherTeam, setCountOtherTeam] = useState(0);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1>Tsunami</h1>
+      <div className="scoreboard">
+        <div className="team">
+          <h2 className="team-name">Tsunami</h2>
+          <div className="score-display">{countTsunami}</div>
+          <button
+            className="score-button"
+            onClick={() => setCountTsunami((countTsunami) => countTsunami + 1)}
+          >
+            +
+          </button>
+        </div>
+
+        <div className="vs-divider">VS</div>
+
+        <div className="team">
+          <h2 className="team-name">Opponent</h2>
+          <div className="score-display">{countOtherTeam}</div>
+          <button
+            className="score-button"
+            onClick={() =>
+              setCountOtherTeam((countOtherTeam) => countOtherTeam + 1)
+            }
+          >
+            +
+          </button>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
