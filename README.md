@@ -2,11 +2,11 @@
 
 A modern, TypeScript-powered soccer scoreboard application built with React and Vite. Track goals for the Tsunami team and their opponents.
 
-🌐 **[tsunami.surge.sh](https://tsunami.surge.sh)**
+**[tsunami.surge.sh](https://tsunami.surge.sh)**
 
-![Soccer Ball](⚽) **Live Soccer Scoring** • **Modern TypeScript** • **Mobile-First Design**
+**Live Soccer Scoring** • **Modern TypeScript** • **Mobile-First Design**
 
-## ✨ Features
+## Features
 
 - **Real-time Score Tracking**: Increment scores for both teams with intuitive buttons
 - **Modern Design**: Glassmorphic UI with dark gradient background and neon accents
@@ -15,7 +15,7 @@ A modern, TypeScript-powered soccer scoreboard application built with React and 
 - **Accessible**: ARIA labels and semantic HTML for screen readers
 - **Performance Optimized**: Uses React hooks and memoization for optimal performance
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Frontend**: React 18 + TypeScript
 - **Build Tool**: Vite
@@ -23,7 +23,7 @@ A modern, TypeScript-powered soccer scoreboard application built with React and 
 - **Fonts**: Google Fonts (Codystar for headers)
 - **Icons**: Emoji-based (⚽🌊)
 
-## 📱 Design Highlights
+## Design Highlights
 
 - **Dark Theme**: Beautiful gradient background (#0f0f23 to #16213e)
 - **Glassmorphism**: Frosted glass effects with backdrop blur
@@ -31,7 +31,7 @@ A modern, TypeScript-powered soccer scoreboard application built with React and 
 - **Typography**: Codystar font for the main title
 - **Responsive Layout**: Side-by-side on desktop, optimized for mobile
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 src/
@@ -54,7 +54,7 @@ src/
 └── main.tsx              # Application entry point
 ```
 
-## 🎯 TypeScript Features
+## TypeScript Features
 
 - **Strict Type Checking**: Comprehensive interfaces for all components
 - **Custom Hooks**: Typed state management with `useScoreboard`
@@ -62,7 +62,7 @@ src/
 - **Event Handling**: Properly typed React event handlers
 - **Accessibility**: Typed ARIA attributes and semantic HTML
 
-## 🛠️ Development
+## Development
 
 ### Prerequisites
 
@@ -76,7 +76,7 @@ src/
 - `npm run preview` - Preview production build locally
 - `npm run lint` - Run ESLint for code quality
 
-## 🎨 Customization
+## Customization
 
 ### Team Names
 
@@ -105,7 +105,7 @@ Modify the color scheme in `src/App.css`:
 
 Update the Google Fonts import in `index.html` and CSS font-family.
 
-## 🚀 Deployment
+## Deployment
 
 ### Build for Production
 
@@ -130,35 +130,8 @@ This project is deployed using [Surge.sh](https://surge.sh/) for fast, simple st
    ```bash
    npm run build
    cd dist
-   surge
+   npx surge
    ```
 
 3. **Follow prompts** to set your domain and deploy instantly
 
-### Other Recommended Hosting
-
-- **Vercel**: Zero-config deployment
-- **Netlify**: Easy continuous deployment
-- **GitHub Pages**: Free hosting for public repos
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🏆 Credits
-
-Built with ❤️ using modern web technologies:
-
-- React team for the amazing framework
-- Vite team for the lightning-fast build tool
-- TypeScript team for type safety
-- Google Fonts for beautiful typography
-- Surge.sh for simple and fast deployment
