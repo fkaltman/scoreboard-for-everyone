@@ -8,7 +8,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ team, onScoreChange }) => {
     onScoreChange("increment");
   };
 
-  const teamDisplayName: string = team.emoji ? `${team.emoji}` : team.name;
+  const teamDisplayName: string = team.name;
 
   return (
     <div className="team">

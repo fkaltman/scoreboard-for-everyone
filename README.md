@@ -21,7 +21,7 @@ A modern, TypeScript-powered soccer scoreboard application built with React and 
 - **Build Tool**: Vite
 - **Styling**: Modern CSS with glassmorphism effects
 - **Fonts**: Google Fonts (Codystar for headers)
-- **Icons**: Emoji-based (⚽🌊)
+- **Team Display**: Text-based team names (Tsunami vs Opponent)
 
 ## Design Highlights
 
@@ -85,7 +85,7 @@ Edit the team names in `src/hooks/useScoreboard.ts`:
 ```typescript
 const [tsunamiTeam, setTsunamiTeam] = useState<Team>({
   name: "Your Team Name",
-  emoji: "🌊",
+  score: 0,
 });
 ```
 
@@ -134,4 +134,3 @@ This project is deployed using [Surge.sh](https://surge.sh/) for fast, simple st
    ```
 
 3. **Follow prompts** to set your domain and deploy instantly
-
