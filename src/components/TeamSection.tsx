@@ -1,11 +1,11 @@
-import React from 'react';
-import type { TeamSectionProps } from '../types';
-import ScoreButton from './ScoreButton';
-import ScoreDisplay from './ScoreDisplay';
+import React from "react";
+import type { TeamSectionProps } from "../types";
+import ScoreButton from "./ScoreButton";
+import ScoreDisplay from "./ScoreDisplay";
 
 const TeamSection: React.FC<TeamSectionProps> = ({ team, onScoreChange }) => {
   const handleIncrement = (): void => {
-    onScoreChange('increment');
+    onScoreChange("increment");
   };
 
   const teamDisplayName: string = team.emoji ? `${team.emoji}` : team.name;
@@ -14,7 +14,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ team, onScoreChange }) => {
     <div className="team">
       <h2 className="team-name">{teamDisplayName}</h2>
       <ScoreDisplay score={team.score} teamName={team.name} />
-      <ScoreButton 
+      <ScoreButton
         onClick={handleIncrement}
         aria-label={`Add goal for ${team.name}`}
       />

@@ -11,12 +11,12 @@ export interface ScoreboardState {
   opponentTeam: Team;
 }
 
-export type ScoreAction = 'increment' | 'decrement' | 'reset';
+export type ScoreAction = "increment" | "decrement" | "reset";
 
 export interface ScoreButtonProps {
   onClick: () => void;
   disabled?: boolean;
-  'aria-label'?: string;
+  "aria-label"?: string;
 }
 
 export interface ScoreDisplayProps {
@@ -30,7 +30,9 @@ export interface TeamSectionProps {
 }
 
 // Event handler types
-export type ButtonClickHandler = (event: React.MouseEvent<HTMLButtonElement>) => void;
+export type ButtonClickHandler = (
+  event: React.MouseEvent<HTMLButtonElement>
+) => void;
 export type ScoreUpdateHandler = (newScore: number) => void;
 
 // Component props with strict typing

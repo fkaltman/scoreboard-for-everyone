@@ -1,2 +1,2 @@
 // Export all utility functions
-export * from './scoreUtils';
+export * from "./scoreUtils";

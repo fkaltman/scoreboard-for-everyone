@@ -1,19 +1,17 @@
-import type { Team } from '../types';
+import type { Team } from "../types";
 
 /**
  * Validates that a score is a valid non-negative integer
  */
 export const isValidScore = (score: unknown): score is number => {
-  return typeof score === 'number' && 
-         Number.isInteger(score) && 
-         score >= 0;
+  return typeof score === "number" && Number.isInteger(score) && score >= 0;
 };
 
 /**
  * Safely formats a score for display
  */
 export const formatScore = (score: number): string => {
-  return isValidScore(score) ? score.toString() : '0';
+  return isValidScore(score) ? score.toString() : "0";
 };
 
 /**
@@ -44,11 +42,11 @@ export const isTieGame = (team1: Team, team2: Team): boolean => {
  */
 export const getGameStatus = (team1: Team, team2: Team): string => {
   if (isTieGame(team1, team2)) {
-    return team1.score === 0 ? 'Game not started' : 'Tie game';
+    return team1.score === 0 ? "Game not started" : "Tie game";
   }
-  
+
   const winner = getWinningTeam(team1, team2);
   const difference = getScoreDifference(team1, team2);
-  
+
   return `${winner?.name} leading by ${difference}`;
 };

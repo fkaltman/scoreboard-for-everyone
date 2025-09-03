@@ -1,2 +1,2 @@
 // Export all hooks
-export { useScoreboard } from './useScoreboard';
+export { useScoreboard } from "./useScoreboard";

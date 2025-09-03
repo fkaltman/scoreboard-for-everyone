@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import type { Team, ScoreAction } from '../types';
+import { useState, useCallback } from "react";
+import type { Team, ScoreAction } from "../types";
 
 interface UseScoreboardReturn {
   tsunamiTeam: Team;
@@ -17,32 +17,32 @@ export const useScoreboard = (
   const [tsunamiTeam, setTsunamiTeam] = useState<Team>({
     name: "Tsunami",
     score: initialTsunamiScore,
-    emoji: "🌊"
+    emoji: "🌊",
   });
 
   const [opponentTeam, setOpponentTeam] = useState<Team>({
-    name: "Opponent", 
+    name: "Opponent",
     score: initialOpponentScore,
-    emoji: "⚽"
+    emoji: "⚽",
   });
 
   const updateTsunamiScore = useCallback((action: ScoreAction): void => {
     setTsunamiTeam((prevTeam: Team) => ({
       ...prevTeam,
-      score: calculateNewScore(prevTeam.score, action)
+      score: calculateNewScore(prevTeam.score, action),
     }));
   }, []);
 
   const updateOpponentScore = useCallback((action: ScoreAction): void => {
     setOpponentTeam((prevTeam: Team) => ({
       ...prevTeam,
-      score: calculateNewScore(prevTeam.score, action)
+      score: calculateNewScore(prevTeam.score, action),
     }));
   }, []);
 
   const resetScores = useCallback((): void => {
-    setTsunamiTeam(prev => ({ ...prev, score: 0 }));
-    setOpponentTeam(prev => ({ ...prev, score: 0 }));
+    setTsunamiTeam((prev) => ({ ...prev, score: 0 }));
+    setOpponentTeam((prev) => ({ ...prev, score: 0 }));
   }, []);
 
   const getTotalGoals = useCallback((): number => {
@@ -55,18 +55,21 @@ export const useScoreboard = (
     updateTsunamiScore,
     updateOpponentScore,
     resetScores,
-    getTotalGoals
+    getTotalGoals,
   };
 };
 
 // Helper function with proper typing
-const calculateNewScore = (currentScore: number, action: ScoreAction): number => {
+const calculateNewScore = (
+  currentScore: number,
+  action: ScoreAction
+): number => {
   switch (action) {
-    case 'increment':
+    case "increment":
       return currentScore + 1;
-    case 'decrement':
+    case "decrement":
       return Math.max(0, currentScore - 1);
-    case 'reset':
+    case "reset":
       return 0;
     default:
       // This should never happen with proper typing, but TypeScript requires it

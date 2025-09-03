@@ -1,69 +1,164 @@
-# React + TypeScript + Vite
+# ⚽ Tsunami Scoreboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, TypeScript-powered soccer scoreboard application built with React and Vite. Track goals for the Tsunami team and their opponents.
 
-Currently, two official plugins are available:
+🌐 **[tsunami.surge.sh](https://tsunami.surge.sh)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Soccer Ball](⚽) **Live Soccer Scoring** • **Modern TypeScript** • **Mobile-First Design**
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Real-time Score Tracking**: Increment scores for both teams with intuitive buttons
+- **Modern Design**: Glassmorphic UI with dark gradient background and neon accents
+- **Fully Typed**: Complete TypeScript implementation with strict type checking
+- **Responsive**: Mobile-first design that works on all screen sizes
+- **Accessible**: ARIA labels and semantic HTML for screen readers
+- **Performance Optimized**: Uses React hooks and memoization for optimal performance
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Frontend**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Modern CSS with glassmorphism effects
+- **Fonts**: Google Fonts (Codystar for headers)
+- **Icons**: Emoji-based (⚽🌊)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📱 Design Highlights
+
+- **Dark Theme**: Beautiful gradient background (#0f0f23 to #16213e)
+- **Glassmorphism**: Frosted glass effects with backdrop blur
+- **Neon Accents**: Cyan (#00f5ff) highlights with glow effects
+- **Typography**: Codystar font for the main title
+- **Responsive Layout**: Side-by-side on desktop, optimized for mobile
+
+## 🏗️ Project Structure
+
+```
+src/
+├── components/           # Reusable React components
+│   ├── ScoreButton.tsx   # Typed score increment button
+│   ├── ScoreDisplay.tsx  # Score display with animations
+│   ├── TeamSection.tsx   # Complete team section
+│   └── index.ts          # Barrel exports
+├── hooks/                # Custom React hooks
+│   ├── useScoreboard.ts  # Score management logic
+│   └── index.ts          # Hook exports
+├── types/                # TypeScript definitions
+│   ├── index.ts          # Main type definitions
+│   └── global.d.ts       # Global declarations
+├── utils/                # Utility functions
+│   ├── scoreUtils.ts     # Score calculation helpers
+│   └── index.ts          # Utility exports
+├── App.tsx               # Main application component
+├── App.css               # Styling with mobile-first approach
+└── main.tsx              # Application entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎯 TypeScript Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Strict Type Checking**: Comprehensive interfaces for all components
+- **Custom Hooks**: Typed state management with `useScoreboard`
+- **Type Guards**: Runtime type validation for scores
+- **Event Handling**: Properly typed React event handlers
+- **Accessibility**: Typed ARIA attributes and semantic HTML
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Development
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Available Scripts
+
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint for code quality
+
+## 🎨 Customization
+
+### Team Names
+
+Edit the team names in `src/hooks/useScoreboard.ts`:
+
+```typescript
+const [tsunamiTeam, setTsunamiTeam] = useState<Team>({
+  name: "Your Team Name",
+  emoji: "🌊",
+});
 ```
+
+### Colors
+
+Modify the color scheme in `src/App.css`:
+
+```css
+:root {
+  --primary-color: #00f5ff; /* Cyan accent */
+  --bg-start: #0f0f23; /* Dark blue */
+  --bg-end: #16213e; /* Darker blue */
+}
+```
+
+### Fonts
+
+Update the Google Fonts import in `index.html` and CSS font-family.
+
+## 🚀 Deployment
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist/` directory, ready for deployment to any static hosting service.
+
+### Deploy with Surge.sh
+
+This project is deployed using [Surge.sh](https://surge.sh/) for fast, simple static hosting:
+
+1. **Install Surge globally**
+
+   ```bash
+   npm install -g surge
+   ```
+
+2. **Build and deploy**
+
+   ```bash
+   npm run build
+   cd dist
+   surge
+   ```
+
+3. **Follow prompts** to set your domain and deploy instantly
+
+### Other Recommended Hosting
+
+- **Vercel**: Zero-config deployment
+- **Netlify**: Easy continuous deployment
+- **GitHub Pages**: Free hosting for public repos
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🏆 Credits
+
+Built with ❤️ using modern web technologies:
+
+- React team for the amazing framework
+- Vite team for the lightning-fast build tool
+- TypeScript team for type safety
+- Google Fonts for beautiful typography
+- Surge.sh for simple and fast deployment
