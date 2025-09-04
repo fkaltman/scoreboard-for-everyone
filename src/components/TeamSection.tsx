@@ -8,16 +8,32 @@ const TeamSection: React.FC<TeamSectionProps> = ({ team, onScoreChange }) => {
     onScoreChange("increment");
   };
 
+  const handleDecrement = (): void => {
+    onScoreChange("decrement");
+  };
+
   const teamDisplayName: string = team.name;
 
   return (
     <div className="team">
       <h2 className="team-name">{teamDisplayName}</h2>
       <ScoreDisplay score={team.score} teamName={team.name} />
-      <ScoreButton
-        onClick={handleIncrement}
-        aria-label={`Add goal for ${team.name}`}
-      />
+      <div className="button-container">
+        <ScoreButton
+          primary
+          onClick={handleIncrement}
+          aria-label={`Add a goal for ${team.name}`}
+        >
+          +
+        </ScoreButton>
+        <ScoreButton
+          onClick={handleDecrement}
+          aria-label={`Remove a goal for ${team.name}`}
+          className="score-button--text"
+        >
+          subtract
+        </ScoreButton>
+      </div>
     </div>
   );
 };

@@ -17,6 +17,9 @@ export interface ScoreButtonProps {
   onClick: () => void;
   disabled?: boolean;
   "aria-label"?: string;
+  children?: React.ReactNode;
+  primary?: boolean;
+  className?: string;
 }
 
 export interface ScoreDisplayProps {

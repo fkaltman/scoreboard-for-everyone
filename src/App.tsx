@@ -8,8 +8,13 @@ const App: React.FC<AppProps> = ({
   initialTsunamiScore = 0,
   initialOpponentScore = 0,
 }) => {
-  const { tsunamiTeam, opponentTeam, updateTsunamiScore, updateOpponentScore } =
-    useScoreboard(initialTsunamiScore, initialOpponentScore);
+  const {
+    tsunamiTeam,
+    opponentTeam,
+    updateTsunamiScore,
+    updateOpponentScore,
+    resetScores,
+  } = useScoreboard(initialTsunamiScore, initialOpponentScore);
 
   return (
     <main role="main">
@@ -22,6 +27,17 @@ const App: React.FC<AppProps> = ({
         </div>
 
         <TeamSection team={opponentTeam} onScoreChange={updateOpponentScore} />
+      </div>
+
+      <div className="reset-container">
+        <button
+          className="reset-button"
+          onClick={resetScores}
+          aria-label="Reset both team scores to zero"
+          type="button"
+        >
+          Reset Game
+        </button>
       </div>
     </main>
   );
