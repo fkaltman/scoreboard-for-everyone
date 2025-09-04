@@ -1,4 +1,4 @@
-# ⚽ Tsunami Scoreboard
+# ⚽ Scoreboard For All Teams
 
 A modern, TypeScript-powered soccer scoreboard application built with React and Vite. Track goals for the Tsunami team and their opponents.
 
