@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { TeamSection } from "./components/TeamSection";
 import { TeamSettings } from "./components/TeamSettings";
 import { useScoreboard } from "./hooks/useScoreboard";
