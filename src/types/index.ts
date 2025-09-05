@@ -1,20 +1,19 @@
-// Type definitions for the Tsunami Scoreboard
+// Type definitions for the Scoreboard
 
 export interface Team {
   name: string;
   score: number;
-  emoji?: string;
 }
 
-export interface ScoreboardState {
-  tsunamiTeam: Team;
-  opponentTeam: Team;
+export interface TeamCustomization {
+  name: string;
+  color: string;
+  backgroundColor: string;
 }
-
-export type ScoreAction = "increment" | "decrement" | "reset";
 
 export interface ScoreButtonProps {
   onClick: () => void;
+  teamName?: string;
   disabled?: boolean;
   "aria-label"?: string;
   children?: React.ReactNode;
@@ -29,7 +28,9 @@ export interface ScoreDisplayProps {
 
 export interface TeamSectionProps {
   team: Team;
-  onScoreChange: (action: ScoreAction) => void;
+  onScoreIncrement: () => void;
+  onScoreDecrement: () => void;
+  teamColor?: string;
 }
 
 // Event handler types

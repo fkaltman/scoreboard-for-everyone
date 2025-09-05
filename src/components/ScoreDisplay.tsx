@@ -18,4 +18,4 @@ const ScoreDisplay: React.FC<ScoreDisplayProps> = ({ score, teamName }) => {
   );
 };
 
-export default ScoreDisplay;
+export { ScoreDisplay };

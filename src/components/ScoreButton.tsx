@@ -37,4 +37,4 @@ const ScoreButton: React.FC<ScoreButtonProps> = ({
   );
 };
 
-export default ScoreButton;
+export { ScoreButton };

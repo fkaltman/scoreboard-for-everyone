@@ -1,46 +1,93 @@
-import React from "react";
-import type { AppProps } from "./types";
-import { TeamSection } from "./components";
-import { useScoreboard } from "./hooks";
+import React, { useState, useEffect } from "react";
+import { TeamSection } from "./components/TeamSection";
+import { TeamSettings } from "./components/TeamSettings";
+import { useScoreboard } from "./hooks/useScoreboard";
 import "./App.css";
 
-const App: React.FC<AppProps> = ({
-  initialTsunamiScore = 0,
-  initialOpponentScore = 0,
-}) => {
+function App() {
   const {
-    tsunamiTeam,
+    homeTeam,
     opponentTeam,
-    updateTsunamiScore,
-    updateOpponentScore,
+    teamCustomization,
+    incrementHomeScore,
+    incrementOpponentScore,
+    decrementHomeScore,
+    decrementOpponentScore,
     resetScores,
-  } = useScoreboard(initialTsunamiScore, initialOpponentScore);
+    updateTeamName,
+    updateTeamColor,
+    updateBackgroundColor,
+  } = useScoreboard();
+
+  const [showSettings, setShowSettings] = useState(false);
+
+  // Apply dynamic background color
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      "--dynamic-bg-color",
+      teamCustomization.backgroundColor
+    );
+    document.documentElement.style.setProperty(
+      "--team-color",
+      teamCustomization.color
+    );
+  }, [teamCustomization.backgroundColor, teamCustomization.color]);
 
   return (
-    <main role="main">
-      <h1>Tsunami</h1>
-      <div className="scoreboard" role="region" aria-label="Soccer scoreboard">
-        <TeamSection team={tsunamiTeam} onScoreChange={updateTsunamiScore} />
+    <div className="app">
+      <header className="app-header">
+        <h1 className="app-title">{teamCustomization.name}</h1>
+      </header>
 
-        <div className="vs-divider" aria-hidden="true">
-          VS
+      <main className="scoreboard">
+        <TeamSection
+          team={{ ...homeTeam, name: "Home Team" }}
+          onScoreIncrement={incrementHomeScore}
+          onScoreDecrement={decrementHomeScore}
+          teamColor={teamCustomization.color}
+        />
+
+        <div className="vs-divider">VS</div>
+
+        <TeamSection
+          team={{ ...opponentTeam, name: "Opponent" }}
+          onScoreIncrement={incrementOpponentScore}
+          onScoreDecrement={decrementOpponentScore}
+        />
+      </main>
+
+      <footer className="app-footer">
+        <div className="footer-buttons">
+          <button
+            onClick={resetScores}
+            className="reset-button"
+            aria-label="Reset all scores to zero"
+          >
+            Reset Scores
+          </button>
+          <button
+            className="settings-button"
+            onClick={() => setShowSettings(true)}
+            aria-label="Open team settings"
+          >
+            ⚙️
+          </button>
         </div>
+      </footer>
 
-        <TeamSection team={opponentTeam} onScoreChange={updateOpponentScore} />
-      </div>
-
-      <div className="reset-container">
-        <button
-          className="reset-button"
-          onClick={resetScores}
-          aria-label="Reset both team scores to zero"
-          type="button"
-        >
-          Reset Game
-        </button>
-      </div>
-    </main>
+      {showSettings && (
+        <TeamSettings
+          teamName={teamCustomization.name}
+          teamColor={teamCustomization.color}
+          backgroundColor={teamCustomization.backgroundColor}
+          onTeamNameChange={updateTeamName}
+          onTeamColorChange={updateTeamColor}
+          onBackgroundColorChange={updateBackgroundColor}
+          onClose={() => setShowSettings(false)}
+        />
+      )}
+    </div>
   );
-};
+}
 
 export default App;

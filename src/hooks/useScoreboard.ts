@@ -1,78 +1,73 @@
 import { useState, useCallback } from "react";
-import type { Team, ScoreAction } from "../types";
+import type { Team, TeamCustomization } from "../types";
 
-interface UseScoreboardReturn {
-  tsunamiTeam: Team;
-  opponentTeam: Team;
-  updateTsunamiScore: (action: ScoreAction) => void;
-  updateOpponentScore: (action: ScoreAction) => void;
-  resetScores: () => void;
-  getTotalGoals: () => number;
-}
-
-export const useScoreboard = (
-  initialTsunamiScore: number = 0,
-  initialOpponentScore: number = 0
-): UseScoreboardReturn => {
-  const [tsunamiTeam, setTsunamiTeam] = useState<Team>({
-    name: "Tsunami",
-    score: initialTsunamiScore,
-    emoji: "🌊",
+export const useScoreboard = () => {
+  const [homeTeam, setHomeTeam] = useState<Team>({
+    name: "Home Team",
+    score: 0,
   });
 
   const [opponentTeam, setOpponentTeam] = useState<Team>({
     name: "Opponent",
-    score: initialOpponentScore,
-    emoji: "⚽",
+    score: 0,
   });
 
-  const updateTsunamiScore = useCallback((action: ScoreAction): void => {
-    setTsunamiTeam((prevTeam: Team) => ({
-      ...prevTeam,
-      score: calculateNewScore(prevTeam.score, action),
+  const [teamCustomization, setTeamCustomization] = useState<TeamCustomization>(
+    {
+      name: "Home Team",
+      color: "#00f5ff",
+      backgroundColor: "#0f0f23",
+    }
+  );
+
+  const incrementHomeScore = useCallback(() => {
+    setHomeTeam((prev) => ({ ...prev, score: prev.score + 1 }));
+  }, []);
+
+  const incrementOpponentScore = useCallback(() => {
+    setOpponentTeam((prev) => ({ ...prev, score: prev.score + 1 }));
+  }, []);
+
+  const decrementHomeScore = useCallback(() => {
+    setHomeTeam((prev) => ({ ...prev, score: Math.max(0, prev.score - 1) }));
+  }, []);
+
+  const decrementOpponentScore = useCallback(() => {
+    setOpponentTeam((prev) => ({
+      ...prev,
+      score: Math.max(0, prev.score - 1),
     }));
   }, []);
 
-  const updateOpponentScore = useCallback((action: ScoreAction): void => {
-    setOpponentTeam((prevTeam: Team) => ({
-      ...prevTeam,
-      score: calculateNewScore(prevTeam.score, action),
-    }));
-  }, []);
-
-  const resetScores = useCallback((): void => {
-    setTsunamiTeam((prev) => ({ ...prev, score: 0 }));
+  const resetScores = useCallback(() => {
+    setHomeTeam((prev) => ({ ...prev, score: 0 }));
     setOpponentTeam((prev) => ({ ...prev, score: 0 }));
   }, []);
 
-  const getTotalGoals = useCallback((): number => {
-    return tsunamiTeam.score + opponentTeam.score;
-  }, [tsunamiTeam.score, opponentTeam.score]);
+  const updateTeamName = useCallback((name: string) => {
+    setHomeTeam((prev) => ({ ...prev, name }));
+    setTeamCustomization((prev) => ({ ...prev, name }));
+  }, []);
+
+  const updateTeamColor = useCallback((color: string) => {
+    setTeamCustomization((prev) => ({ ...prev, color }));
+  }, []);
+
+  const updateBackgroundColor = useCallback((backgroundColor: string) => {
+    setTeamCustomization((prev) => ({ ...prev, backgroundColor }));
+  }, []);
 
   return {
-    tsunamiTeam,
+    homeTeam,
     opponentTeam,
-    updateTsunamiScore,
-    updateOpponentScore,
+    teamCustomization,
+    incrementHomeScore,
+    incrementOpponentScore,
+    decrementHomeScore,
+    decrementOpponentScore,
     resetScores,
-    getTotalGoals,
+    updateTeamName,
+    updateTeamColor,
+    updateBackgroundColor,
   };
-};
-
-// Helper function with proper typing
-const calculateNewScore = (
-  currentScore: number,
-  action: ScoreAction
-): number => {
-  switch (action) {
-    case "increment":
-      return currentScore + 1;
-    case "decrement":
-      return Math.max(0, currentScore - 1);
-    case "reset":
-      return 0;
-    default:
-      // This should never happen with proper typing, but TypeScript requires it
-      return currentScore;
-  }
 };
