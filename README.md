@@ -1,15 +1,17 @@
-# ⚽ Scoreboard For All Teams
+# ⚽ Scoreboard For Any Team
 
-A modern, TypeScript-powered soccer scoreboard application built with React and Vite. Track goals for the Tsunami team and their opponents.
+This simple modern, customizable scoreboard application was built with React and TypeScript for the Jersey City Soccer Association girls league, but anyone can use it.
 
-**[tsunami.surge.sh](https://tsunami.surge.sh)**
+**[scores.surge.sh](https://scores.surge.sh)**
 
-**Live Soccer Scoring** • **Modern TypeScript** • **Mobile-First Design**
+**Live Scoring** • **Team Customization** • **Mobile-First Design**
 
 ## Features
 
-- **Real-time Score Tracking**: Increment scores for both teams with intuitive buttons
-- **Modern Design**: Glassmorphic UI with dark gradient background and neon accents
+- **Real-time Score Tracking**: Increment and decrement scores for both teams
+- **Team Customization**: Set custom team names, colors, and background colors
+- **Settings Modal**: Easy-to-use interface for personalizing your scoreboard
+- **Modern Design**: Glassmorphic UI with customizable gradient backgrounds
 - **Fully Typed**: Complete TypeScript implementation with strict type checking
 - **Responsive**: Mobile-first design that works on all screen sizes
 - **Accessible**: ARIA labels and semantic HTML for screen readers
@@ -21,13 +23,13 @@ A modern, TypeScript-powered soccer scoreboard application built with React and 
 - **Build Tool**: Vite
 - **Styling**: Modern CSS with glassmorphism effects
 - **Fonts**: Google Fonts (Sour Gummy for headers)
-- **Team Display**: Text-based team names (Tsunami vs Opponent)
+- **Customization**: Dynamic team names and color theming
 
 ## Design Highlights
 
-- **Dark Theme**: Beautiful gradient background (#0f0f23 to #16213e)
+- **Dark Theme**: Beautiful gradient background with customizable colors
 - **Glassmorphism**: Frosted glass effects with backdrop blur
-- **Neon Accents**: Cyan (#00f5ff) highlights with glow effects
+- **Dynamic Colors**: Customizable team and background colors
 - **Typography**: Sour Gummy font for the main title
 - **Responsive Layout**: Side-by-side on desktop, optimized for mobile
 
@@ -36,9 +38,10 @@ A modern, TypeScript-powered soccer scoreboard application built with React and 
 ```
 src/
 ├── components/           # Reusable React components
-│   ├── ScoreButton.tsx   # Typed score increment button
+│   ├── ScoreButton.tsx   # Increment/decrement buttons
 │   ├── ScoreDisplay.tsx  # Score display with animations
 │   ├── TeamSection.tsx   # Complete team section
+│   ├── TeamSettings.tsx  # Settings modal for customization
 │   └── index.ts          # Barrel exports
 ├── hooks/                # Custom React hooks
 │   ├── useScoreboard.ts  # Score management logic
@@ -78,32 +81,32 @@ src/
 
 ## Customization
 
-### Team Names
+### Team Settings
 
-Edit the team names in `src/hooks/useScoreboard.ts`:
+Click the ⚙️ settings button to customize:
+
+- **Team Name**: Set your team's display name
+- **Team Color**: Choose the color for team elements and text
+- **Background Color**: Customize the gradient background
+
+All changes are applied instantly and persist during your session.
+
+### Manual Customization
+
+You can also edit default values in `src/hooks/useScoreboard.ts`:
 
 ```typescript
-const [tsunamiTeam, setTsunamiTeam] = useState<Team>({
+const [homeTeam, setHomeTeam] = useState<Team>({
   name: "Your Team Name",
   score: 0,
 });
+
+const [teamCustomization, setTeamCustomization] = useState<TeamCustomization>({
+  name: "Your Team Name",
+  color: "#your-color",
+  backgroundColor: "#your-bg-color",
+});
 ```
-
-### Colors
-
-Modify the color scheme in `src/App.css`:
-
-```css
-:root {
-  --primary-color: #00f5ff; /* Cyan accent */
-  --bg-start: #0f0f23; /* Dark blue */
-  --bg-end: #16213e; /* Darker blue */
-}
-```
-
-### Fonts
-
-Update the Google Fonts import in `index.html` and CSS font-family.
 
 ## Deployment
 
@@ -115,9 +118,9 @@ npm run build
 
 The built files will be in the `dist/` directory, ready for deployment to any static hosting service.
 
-### Deploy with Surge.sh
+### Deploy with Surge.sh or Any Static Host
 
-This project is deployed using [Surge.sh](https://surge.sh/) for fast, simple static hosting:
+This project can be deployed to any static hosting service. Here's an example using [Surge.sh](https://surge.sh/):
 
 1. **Install Surge globally**
 
@@ -134,3 +137,12 @@ This project is deployed using [Surge.sh](https://surge.sh/) for fast, simple st
    ```
 
 3. **Follow prompts** to set your domain and deploy instantly
+
+## Use Cases
+
+Perfect for:
+
+- **Sports Events**: Soccer, basketball, hockey, tennis, etc.
+- **Gaming Tournaments**: Esports, board games, competitions
+- **Classroom Activities**: Quiz competitions, team challenges
+- **Events**: Any scenario where you need to track two competing sides
