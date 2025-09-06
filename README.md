@@ -20,7 +20,7 @@ A modern, TypeScript-powered soccer scoreboard application built with React and 
 - **Frontend**: React 18 + TypeScript
 - **Build Tool**: Vite
 - **Styling**: Modern CSS with glassmorphism effects
-- **Fonts**: Google Fonts (Codystar for headers)
+- **Fonts**: Google Fonts (Sour Gummy for headers)
 - **Team Display**: Text-based team names (Tsunami vs Opponent)
 
 ## Design Highlights
@@ -28,7 +28,7 @@ A modern, TypeScript-powered soccer scoreboard application built with React and 
 - **Dark Theme**: Beautiful gradient background (#0f0f23 to #16213e)
 - **Glassmorphism**: Frosted glass effects with backdrop blur
 - **Neon Accents**: Cyan (#00f5ff) highlights with glow effects
-- **Typography**: Codystar font for the main title
+- **Typography**: Sour Gummy font for the main title
 - **Responsive Layout**: Side-by-side on desktop, optimized for mobile
 
 ## Project Structure
