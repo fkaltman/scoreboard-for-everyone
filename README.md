@@ -10,6 +10,7 @@ This simple modern, customizable scoreboard application was built with React and
 
 - **Real-time Score Tracking**: Increment and decrement scores for both teams
 - **Team Customization**: Set custom team names, colors, and background colors
+- **Coordinated Theming**: Team color selection automatically updates title, score numbers, increment buttons, and score borders
 - **Settings Modal**: Easy-to-use interface for personalizing your scoreboard
 - **Modern Design**: Glassmorphic UI with customizable gradient backgrounds
 - **Fully Typed**: Complete TypeScript implementation with strict type checking
@@ -29,7 +30,7 @@ This simple modern, customizable scoreboard application was built with React and
 
 - **Dark Theme**: Beautiful gradient background with customizable colors
 - **Glassmorphism**: Frosted glass effects with backdrop blur
-- **Dynamic Colors**: Customizable team and background colors
+- **Dynamic Colors**: Coordinated color theming - team color affects title, score numbers, buttons, and borders
 - **Typography**: Sour Gummy font for the main title
 - **Responsive Layout**: Side-by-side on desktop, optimized for mobile
 
@@ -86,10 +87,10 @@ src/
 Click the ⚙️ settings button to customize:
 
 - **Team Name**: Set your team's display name
-- **Team Color**: Choose the color for team elements and text
+- **Team Color**: Choose the color for team elements (affects title, score numbers, increment buttons, and score borders)
 - **Background Color**: Customize the gradient background
 
-All changes are applied instantly and persist during your session.
+All changes are applied instantly with coordinated theming and persist during your session.
 
 ### Manual Customization
 

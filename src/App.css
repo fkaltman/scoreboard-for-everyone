@@ -115,7 +115,7 @@ body {
 .score-display {
   font-size: 4rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--team-color);
   background: linear-gradient(
     135deg,
     rgba(0, 245, 255, 0.1) 0%,
@@ -123,7 +123,7 @@ body {
   );
   border-radius: 16px;
   padding: 1.5rem 2rem;
-  border: 2px solid rgba(0, 245, 255, 0.3);
+  border: 2px solid var(--team-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -240,7 +240,7 @@ body {
   min-height: 40px;
   font-size: 1.4rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #00f5ff 0%, #00a8cc 100%);
+  background: var(--team-color);
   color: #0a0a0f;
   opacity: 1;
   border-radius: 6px;
@@ -326,7 +326,7 @@ body {
   min-height: 40px;
   font-size: 1.6rem;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--primary-color) 0%, #00a8cc 100%);
+  background: var(--team-color);
   color: #0a0a0f;
   opacity: 1;
   border-radius: 8px;
