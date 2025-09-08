@@ -263,6 +263,38 @@ body {
   transition: all 0.3s ease;
 }
 
+/* Small mobile devices (iPhone SE, etc.) */
+@media (max-width: 480px) {
+  .app-header {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .app-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .team {
+    padding: 1.2rem 1rem;
+    gap: 1rem;
+  }
+
+  .score-display {
+    font-size: 3rem;
+    padding: 1rem 1.5rem;
+    margin-top: 10px;
+  }
+
+  .app-footer {
+    padding: 1rem;
+  }
+
+  .footer-buttons {
+    gap: 1rem;
+  }
+}
+
 /* Tablet styles */
 @media (min-width: 768px) {
   .app-title {
