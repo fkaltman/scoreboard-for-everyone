@@ -36,9 +36,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
   flex-shrink: 0;
-  margin-top: 4%;
+  margin-top: 7%;
   position: relative;
 }
 
@@ -266,32 +266,33 @@ body {
 /* Small mobile devices (iPhone SE, etc.) */
 @media (max-width: 480px) {
   .app-header {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
+    margin-top: 2%;
+    margin-bottom: 20%;
+    padding: 0.75rem 1.5rem;
   }
 
   .app-title {
-    font-size: 2.2rem;
-    line-height: 1.2;
+    font-size: 2.6rem;
+    line-height: 1.3;
   }
 
   .team {
-    padding: 1.2rem 1rem;
-    gap: 1rem;
+    padding: 1.6rem 1.2rem;
+    gap: 1.2rem;
   }
 
   .score-display {
-    font-size: 3rem;
-    padding: 1rem 1.5rem;
-    margin-top: 10px;
+    font-size: 3.5rem;
+    padding: 1.2rem 1.75rem;
+    margin-top: 15px;
   }
 
   .app-footer {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   .footer-buttons {
-    gap: 1rem;
+    gap: 1.5rem;
   }
 }
 
