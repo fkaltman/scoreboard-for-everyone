@@ -26,6 +26,7 @@ body {
 /* App-specific styles */
 .app {
   min-height: 100vh;
+  min-height: 100dvh; /* Use dynamic viewport height for mobile */
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -266,8 +267,8 @@ body {
 /* Small mobile devices (iPhone SE, etc.) */
 @media (max-width: 480px) {
   .app-header {
-    margin-top: 14%;
-    margin-bottom: 10%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
     padding: 0.75rem 1.5rem;
   }
 
@@ -438,11 +439,14 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  height: 100dvh; /* Use dynamic viewport height */
   background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  /* Prevent iOS Safari bounce scrolling */
+  overscroll-behavior: none;
 }
 
 .settings-modal {
