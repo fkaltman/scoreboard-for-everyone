@@ -370,6 +370,10 @@ body {
 
 /* Desktop styles */
 @media (min-width: 1024px) {
+  .app-header {
+    margin-top: 4%;
+  }
+
   .app-title {
     font-size: 4.5rem;
   }
@@ -408,6 +412,10 @@ body {
     width: 140px;
     min-height: 80px;
     font-size: 2rem;
+  }
+
+  .app-footer {
+    margin-top: -40px;
   }
 
   .reset-button {
