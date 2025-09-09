@@ -267,7 +267,7 @@ body {
 @media (max-width: 480px) {
   .app-header {
     margin-top: 2%;
-    margin-bottom: 14%;
+    margin-bottom: 12%;
     padding: 0.75rem 1.5rem;
   }
 
@@ -289,6 +289,7 @@ body {
 
   .app-footer {
     padding: 1.5rem;
+    margin-top: 30px;
   }
 
   .footer-buttons {
