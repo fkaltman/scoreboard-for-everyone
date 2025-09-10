@@ -1,6 +1,7 @@
 # ⚽ Scoreboard For Any Team
 
-This simple modern, customizable scoreboard application was built with React and TypeScript for the Jersey City Soccer Association girls league, but anyone can use it.
+A simple, modern, and customizable digital scoreboard for your pocket.
+This application was built with React and TypeScript for the Jersey City Soccer Association girls league, but anyone can use it.
 
 **[scores.surge.sh](https://scores.surge.sh)**
 
@@ -25,14 +26,6 @@ This simple modern, customizable scoreboard application was built with React and
 - **Styling**: Modern CSS with glassmorphism effects
 - **Fonts**: Google Fonts (Sour Gummy for headers)
 - **Customization**: Dynamic team names and color theming
-
-## Design Highlights
-
-- **Dark Theme**: Beautiful gradient background with customizable colors
-- **Glassmorphism**: Frosted glass effects with backdrop blur
-- **Dynamic Colors**: Coordinated color theming - team color affects title, score numbers, buttons, and borders
-- **Typography**: Sour Gummy font for the main title
-- **Responsive Layout**: Side-by-side on desktop, optimized for mobile
 
 ## Project Structure
 
