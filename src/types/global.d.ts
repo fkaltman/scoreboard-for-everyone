@@ -8,7 +8,7 @@ declare module "*.css" {
 declare global {
   interface Window {
     // Add any global properties you might use
-    gtag?: (...args: any[]) => void;
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
