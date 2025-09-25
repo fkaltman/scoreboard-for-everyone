@@ -9,25 +9,19 @@ const ScoreButton: React.FC<ScoreButtonProps> = ({
   primary = false,
   className,
 }) => {
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    event.preventDefault();
-    if (!disabled) {
-      onClick();
-    }
-  };
 
-  let buttonClass = "score-button";
-  if (primary) {
-    buttonClass += " score-button--primary";
-  }
-  if (className) {
-    buttonClass = className;
-  }
+  const buttonClass = [
+    "score-button",
+    primary && "score-button--primary",
+    className 
+  ].filter(Boolean)
+  .join(" ");
+  
 
   return (
     <button
       className={buttonClass}
-      onClick={handleClick}
+      onClick={onClick}
       disabled={disabled}
       aria-label={ariaLabel || "Increment score"}
       type="button"
@@ -38,3 +32,5 @@ const ScoreButton: React.FC<ScoreButtonProps> = ({
 };
 
 export { ScoreButton };
+
+
